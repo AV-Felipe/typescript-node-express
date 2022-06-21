@@ -6,8 +6,10 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT;
 
-app.get('/', (req, res) => {
-  res.send('Express + TypeScript Server');
+app.get('/ping', (req, res) => {
+  const value = {ping: "pong"};
+  res.type('application/json')
+  res.send(value);
 });
 
 app.listen(port, () => {
